@@ -11,7 +11,7 @@ namespace PirkiniuKrepselisBiblioteka
         PrekiuSarasas s1 = new PrekiuSarasas(1);
         public void pradzia()
         {
-            Console.WriteLine("Ka norite atlikti? - 1 prideti prekia, 2 perziureti sarasa. Istrinti preke? - 3");
+            Console.WriteLine("Ka norite atlikti? - 1 prideti prekia, 2 perziureti sarasa. Istrinti preke? - 3 arba keisti prekes kieki - 4");
             int pasirinkimas = Convert.ToInt32(Console.ReadLine());
             if (pasirinkimas == 1)
             {
@@ -30,9 +30,28 @@ namespace PirkiniuKrepselisBiblioteka
             }
             else if (pasirinkimas == 3)
             {
+                nueitiItrinima();
+                testiDarba();
+            }
+            else if (pasirinkimas == 4)
+            {
+                koreguotiKieki();
+                testiDarba();
+            }
+        }
+        
+        public void nueitiItrinima()
+        {
+            if (sarasoPatikra() == true)
+            {
+                Console.WriteLine("");
+            }
+            else
+            {
                 IstrintiIsSarasoNumeri();
             }
         }
+        
         public void IstrintiIsSarasoNumeri()
         {
             s1.Isvedimas();
@@ -49,16 +68,36 @@ namespace PirkiniuKrepselisBiblioteka
             }
         }
 
-        public void sarasoPatikra()
+        public bool sarasoPatikra()
         {
             if (s1.ArSarasasTuscias() == true)
             {
                 Console.WriteLine("Saras vis dar tuscias!");
+                return true;
             }
             else
             {
                 s1.Isvedimas();
+                return false;
             }
+        }
+
+        public void koreguotiKieki()
+        {
+
+            if (sarasoPatikra() == true)
+            {
+                Console.WriteLine("");
+            }
+            else
+            {
+                Console.WriteLine("Kuria prekia koreguoti? ivesti nr. is saraso, taip pat nauja kieki");
+                int pasirinkimas = Convert.ToInt32(Console.ReadLine());
+                int kk = Convert.ToInt32(Console.ReadLine());
+                s1.sukeitimas(pasirinkimas, kk);
+            }
+            testiDarba();
+
         }
 
         public void testiDarba()

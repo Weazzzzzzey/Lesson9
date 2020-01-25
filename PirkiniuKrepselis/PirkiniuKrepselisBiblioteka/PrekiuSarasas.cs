@@ -59,6 +59,11 @@ namespace PirkiniuKrepselisBiblioteka
             private set { }
         }
 
+        public void sukeitimas(int NrSarese, int naujaReiksme)
+        {
+            _pirkiniai[NrSarese].kiekoPakeitimas(naujaReiksme);
+        }
+
         public void Isvedimas()
         {
             double BendraKaina = 0;

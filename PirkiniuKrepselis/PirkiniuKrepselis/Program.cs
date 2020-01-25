@@ -15,7 +15,6 @@ namespace PirkiniuKrepselis
             Meniu p1 = new Meniu();
             p1.pradzia();
             p1.sarasoPatikra();
-            
 
             Console.ReadLine();
         }

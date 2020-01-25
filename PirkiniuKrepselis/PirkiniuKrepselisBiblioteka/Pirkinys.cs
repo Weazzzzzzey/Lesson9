@@ -13,8 +13,6 @@ namespace PirkiniuKrepselisBiblioteka
         private double _vntKaina;
         private double _kainaViso;
 
-
-
         public Pirkinys(string pavadinimas, int kiekis, double vntKaina)
         {
             this._prekesPavadinimas = pavadinimas;
@@ -42,7 +40,12 @@ namespace PirkiniuKrepselisBiblioteka
         public int Kiekis
         {
             get { return _kiekis; }
-            private set { }
+            set { _kiekis = value; }
+        }
+
+        public void kiekoPakeitimas(int kk)
+        {
+            Kiekis = kk;
         }
     }
 }
